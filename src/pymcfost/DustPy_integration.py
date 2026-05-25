@@ -781,7 +781,7 @@ def check_dustpy_MCFOST_correspondance_2D(density_file_path,MCFOST_data_disk_fol
     plt.imshow(MCFOST_file[:,:]/np.max(MCFOST_file[:,:])-DustPy_file[0,:,:]/np.max(DustPy_file[0,:,:]),origin='lower')
     plt.xlabel("r bins")
     plt.ylabel("Z bins")
-    plt.title("Residual of MCFOST gas density file - gas density file\nmade by this code at size bin "+str(i))
+    plt.title("Residual of MCFOST gas density file - gas density file\nmade by this code at size bin "
     plt.colorbar()
     plt.show()
     print("Tip : if the redsidual is one over the vast majority of the image, this probably means that the density was so low that it fell below MCFOST's single precision.\n This is a fine approximation as the lower limit for single precision is about 1e-40 part.m^-3 [per grain size bin N(a).da] ")
