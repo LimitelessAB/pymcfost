@@ -15,4 +15,4 @@ from .dust import *
 from .fitsigma import *
 from .chi2_functions import *
 from .BO_fitting import *
-from .DustPy_integration.py import *
+from .DustPy_integration import *
