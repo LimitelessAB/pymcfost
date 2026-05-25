@@ -740,7 +740,7 @@ def check_dustpy_MCFOST_correspondance_2D(density_file_path,MCFOST_data_disk_fol
     
     plt.figure(figsize=(80,80))
     for i in range (0,len(DustPy_file[0,:])):
-        plt.subplot(10,10,i+1)
+        plt.subplot(11,round(len(DustPy_file[0,:])/10)+1,i+1)
         plt.plot(DustPy_file[:,i]*6.68459e-14,'-.',label="DustPy vertical grid for r cell="+str(i+1))
         plt.plot(MCFOST_file[1,0,:,i],label="MCFOST vertical grid for r cell="+str(i+1))
         plt.xlabel("Cell number")
@@ -781,7 +781,7 @@ def check_dustpy_MCFOST_correspondance_2D(density_file_path,MCFOST_data_disk_fol
     plt.imshow(MCFOST_file[:,:]/np.max(MCFOST_file[:,:])-DustPy_file[0,:,:]/np.max(DustPy_file[0,:,:]),origin='lower')
     plt.xlabel("r bins")
     plt.ylabel("Z bins")
-    plt.title("Residual of MCFOST gas density file - gas density file\nmade by this code")
+    plt.title("Residual of MCFOST gas density file - gas density file\nmade by this code at size bin "+str(i))
     plt.colorbar()
     plt.show()
     print("Tip : if the redsidual is one over the vast majority of the image, this probably means that the density was so low that it fell below MCFOST's single precision.\n This is a fine approximation as the lower limit for single precision is about 1e-40 part.m^-3 [per grain size bin N(a).da] ")
@@ -792,7 +792,7 @@ def check_dustpy_MCFOST_correspondance_2D(density_file_path,MCFOST_data_disk_fol
     
     plt.figure(figsize=(80,80))
     for i in range (0,len(DustPy_file[:,0,0,0])):
-        plt.subplot(10,10,i+1)
+        plt.subplot(10,round(len(DustPy_file[:,0,0,0])/10)+1,i+1)
         plt.imshow(MCFOST_file[i,:,:]/np.max(MCFOST_file[i,:,:])-DustPy_file[i,0,:,:]/np.max(DustPy_file[i,0,:,:]),origin='lower')
         plt.xlabel("r bins")
         plt.ylabel("Z bins")
