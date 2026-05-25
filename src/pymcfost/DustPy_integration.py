@@ -266,7 +266,7 @@ def make_density_no_settling(DustPy_data_folder :str,number_of_data_files :int,n
         
                 Z_cscl[r_cell]=( Hp_array[r_cell] * 7) / number_of_vertical_cells #Defines the size of one vertical cell by deviding 7 times the local pressure scale height by the number of cells (Why 7 times? To match MCFOST)
                 
-                for Z_cell in range (1,71):
+                for Z_cell in range (1,number_of_vertical_cells+1):
                     Z_array[Z_cell-1,r_cell]=Z_cell*Z_cscl[r_cell]-0.5*Z_cscl[r_cell] #Calculates the vertical position in cm of the center of the cell
                     dust_density_array[size_cell,0,Z_cell-1,r_cell] = density(dust_midplane_array[size_cell,0,0,r_cell] / (np.sqrt(2*np.pi) * Hp_array[r_cell]),Hp_array[r_cell],Z_array[Z_cell-1,r_cell])
                     dust_density_array_particles[size_cell,0,Z_cell-1,r_cell] = dust_density_array[size_cell,0,Z_cell-1,r_cell] / mass_array[size_cell] #Changes from g/cm^3 to particles per cm^3 as this is what MCFOST expects
@@ -280,7 +280,7 @@ def make_density_no_settling(DustPy_data_folder :str,number_of_data_files :int,n
             
             Z_cscl[r_cell]=( Hp_array[r_cell] * 7) / number_of_vertical_cells #Defines the size of one vertical cell by deviding 7 times the local pressure scale height by the number of cells (Why 7 times? To match MCFOST)
             
-            for Z_cell in range (1,71):
+            for Z_cell in range (1,number_of_vertical_cells+1):
                 Z_array[Z_cell-1,r_cell]=Z_cell*Z_cscl[r_cell]-0.5*Z_cscl[r_cell] #Calculates the vertical position in cm of the center of the cell
                 gas_density_array[0,Z_cell-1,r_cell] = density(gas_midplane_array[0,0,r_cell],Hp_array[r_cell],Z_array[Z_cell-1,r_cell])
                 
@@ -381,7 +381,7 @@ def make_density_parametric(DustPy_data_folder,number_of_data_files,number_of_ve
                 Z_cscl[r_cell]=( Hp_array[r_cell] * 7) / number_of_vertical_cells #Defines the size of one vertical cell by deviding 7 times the local pressure scale height by the number of cells (Why 7 times? To match MCFOST)
                 H=height_parametric(Hp_array[r_cell], Grain_size[size_cell], amix, eta_settl) #Gets the dust scale height for each cell
                 
-                for Z_cell in range (1,71):
+                for Z_cell in range (1,number_of_vertical_cells+1):
                     Z_array[Z_cell-1,r_cell]=Z_cell*Z_cscl[r_cell]-0.5*Z_cscl[r_cell] #Calculates the vertical position in cm of the center of the cell
                     dust_density_array[size_cell,0,Z_cell-1,r_cell] = density(dust_midplane_array[size_cell,0,0,r_cell] / (np.sqrt(2*np.pi) * H),H,Z_array[Z_cell-1,r_cell])
                     dust_density_array_particles[size_cell,0,Z_cell-1,r_cell] = dust_density_array[size_cell,0,Z_cell-1,r_cell] / mass_array[size_cell] #Changes from g/cm^3 to particles per cm^3 as this is what MCFOST expects
@@ -395,7 +395,7 @@ def make_density_parametric(DustPy_data_folder,number_of_data_files,number_of_ve
             
             Z_cscl[r_cell]=( Hp_array[r_cell] * 7) / number_of_vertical_cells #Defines the size of one vertical cell by deviding 7 times the local pressure scale height by the number of cells (Why 7 times? To match MCFOST)
             
-            for Z_cell in range (1,71):
+            for Z_cell in range (1,number_of_vertical_cells+1):
                 Z_array[Z_cell-1,r_cell]=Z_cell*Z_cscl[r_cell]-0.5*Z_cscl[r_cell] #Calculates the vertical position in cm of the center of the cell
                 gas_density_array[0,Z_cell-1,r_cell] = density(gas_midplane_array[0,0,r_cell],Hp_array[r_cell],Z_array[Z_cell-1,r_cell])
                 
@@ -488,7 +488,7 @@ def make_density_Dubrulle(DustPy_data_folder,number_of_data_files,number_of_vert
         
                 Z_cscl[r_cell]=( Hp_array[r_cell] * 7) / number_of_vertical_cells #Defines the size of one vertical cell by deviding 7 times the local pressure scale height by the number of cells (Why 7 times? To match MCFOST)
                 
-                for Z_cell in range (1,71):
+                for Z_cell in range (1,number_of_vertical_cells+1):
                     Z_array[Z_cell-1,r_cell]=Z_cell*Z_cscl[r_cell]-0.5*Z_cscl[r_cell] #Calculates the vertical position in cm of the center of the cell
                     dust_density_array[size_cell,0,Z_cell-1,r_cell] = density(dust_midplane_array[size_cell,0,0,r_cell],H_array[r_cell,size_cell],Z_array[Z_cell-1,r_cell])
                     dust_density_array_particles[size_cell,0,Z_cell-1,r_cell] = dust_density_array[size_cell,0,Z_cell-1,r_cell] / mass_array[size_cell] #Changes from g/cm^3 to particles per cm^3 as this is what MCFOST expects
@@ -502,7 +502,7 @@ def make_density_Dubrulle(DustPy_data_folder,number_of_data_files,number_of_vert
             
             Z_cscl[r_cell]=( Hp_array[r_cell] * 7) / number_of_vertical_cells #Defines the size of one vertical cell by deviding 7 times the local pressure scale height by the number of cells (Why 7 times? To match MCFOST)
             
-            for Z_cell in range (1,71):
+            for Z_cell in range (1,number_of_vertical_cells+1):
                 Z_array[Z_cell-1,r_cell]=Z_cell*Z_cscl[r_cell]-0.5*Z_cscl[r_cell] #Calculates the vertical position in cm of the center of the cell
                 gas_density_array[0,Z_cell-1,r_cell] = density(gas_midplane_array[0,0,r_cell],Hp_array[r_cell],Z_array[Z_cell-1,r_cell])
                 
@@ -592,7 +592,7 @@ def make_density_Fromang(DustPy_data_folder,number_of_data_files,number_of_verti
             
             Z_cscl[r_cell]=( Hp_array[r_cell] * 7) / number_of_vertical_cells #Defines the size of one vertical cell by deviding 7 times the local pressure scale height by the number of cells (Why 7 times? To match MCFOST)
             
-            for Z_cell in range (1,71):
+            for Z_cell in range (1,number_of_vertical_cells+1):
                 Z_array[Z_cell-1,r_cell]=Z_cell*Z_cscl[r_cell]-0.5*Z_cscl[r_cell] #Calculates the vertical position in cm of the center of the cell
                 gas_density_array[0,Z_cell-1,r_cell] = density(gas_midplane_array[0,0,r_cell],Hp_array[r_cell],Z_array[Z_cell-1,r_cell])
         
@@ -612,7 +612,7 @@ def make_density_Fromang(DustPy_data_folder,number_of_data_files,number_of_verti
         
                 Z_cscl[r_cell]=( Hp_array[r_cell] * 7) / number_of_vertical_cells #Defines the size of one vertical cell by deviding 7 times the local pressure scale height by the number of cells (Why 7 times? To match MCFOST)
                 
-                for Z_cell in range (1,71):
+                for Z_cell in range (1,number_of_vertical_cells+1):
                     Z_array[Z_cell-1,r_cell]=Z_cell*Z_cscl[r_cell]-0.5*Z_cscl[r_cell] #Calculates the vertical position in cm of the center of the cell
                     #D_tilde=alpha_array[r_cell]/(1+Stokes_array[r_cell,size_cell]**2) #We adopt the expression D_tilde=alpha/Sc from Fromang and Nelson 2009, where Sc is the Schimdt number calculated as Sc=1+St, where St is the Stokes number, as in C. P. Dullemond and C. Dominik 2004
                     D_tilde=alpha_array[r_cell]/1.5
@@ -622,7 +622,7 @@ def make_density_Fromang(DustPy_data_folder,number_of_data_files,number_of_verti
         
             for r_cell in range (0,number_of_radial_cells):
                 
-                for Z_cell in range (1,71):
+                for Z_cell in range (1,number_of_vertical_cells+1):
                         dust_density_array_particles[size_cell,0,Z_cell-1,r_cell] = dust_density_array[size_cell,0,Z_cell-1,r_cell] / mass_array[size_cell]
         
         '---Mass---'
