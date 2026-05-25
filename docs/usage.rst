@@ -315,7 +315,7 @@ Usage of control function:
 
    from pymcfost import DustPy_integration
 
-   DustPy_integration.check_dustpy_MCFOST_correspondance_2D(path_to_a_density_function_output_fits_file,path_to_data_disk_MCFOST_folder))
+   DustPy_integration.check_dustpy_MCFOST_correspondence_2D(path_to_a_density_function_output_fits_file,path_to_data_disk_MCFOST_folder)
    #It is not recommended to loop this function as it outputs a large number of figures.
 
 Directory Structure
